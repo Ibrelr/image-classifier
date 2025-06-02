@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Image Classifier</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Smart Image Classifier</h1>
+      <p class="subtitle">Powered by AI • Upload multiple images for instant classification</p>
+    </div>
+
+    <div class="upload-section">
+      <form id="uploadForm">
+        <div class="file-input-wrapper">
+          <input type="file" name="images" id="imageInput" accept="image/*" multiple required class="file-input">
+          <label for="imageInput" class="file-input-label">
+            <svg class="file-input-icon" viewBox="0 0 24 24">
+              <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+            </svg>
+            Choose Images
+          </label>
+        </div>
+        <button type="submit" class="classify-btn" id="classifyBtn">
+          🚀 Classify Images
+        </button>
+      </form>
+    </div>
+
+    <div class="results-section" id="resultsSection">
+      <div class="empty-state">
+        <svg class="upload-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z"/>
+        </svg>
+        <p>Upload images to see AI classification results</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
+
