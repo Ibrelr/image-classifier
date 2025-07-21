@@ -32,8 +32,10 @@ def classify():
         file.save(filepath)
         
         try:
-            # Classify using your existing function
-            category, probability = classify_image_path(filepath)
+            # Classify using your existing function with debug enabled
+            print(f"🔍 Classifying image: {filename}")
+            category, probability = classify_image_path(filepath, debug=True)
+            print(f"✅ Result: {category} ({probability:.1%})")
             
             # Clean up
             os.remove(filepath)
@@ -52,6 +54,7 @@ def classify():
         return jsonify({'error': f'Server error: {str(e)}'}), 500
 
 if __name__ == '__main__':
+    port = 5000
     print(" Starting Smart Image Classifier...")
-    print(" Open: http://localhost:5000")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    print(f" Open: http://127.0.0.1:{port}")
+    app.run(debug=True, host='0.0.0.0', port=port)
