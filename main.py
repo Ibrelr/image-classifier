@@ -33,13 +33,11 @@ def classify():
         
         try:
             # Classify using your existing function with debug enabled
-            print(f"🔍 Classifying image: {filename}")
+            print(f"🔍 DEBUG: About to classify {filename}")
             category, probability = classify_image_path(filepath, debug=True)
-            print(f"✅ Result: {category} ({probability:.1%})")
-            
+            print(f"🔍 DEBUG: Result: {category} ({probability:.1%})")
             # Clean up
             os.remove(filepath)
-            
             return jsonify({
                 'category': category,
                 'confidence': f'{probability:.1%}'
